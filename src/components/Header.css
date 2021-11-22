@@ -16,14 +16,21 @@
   height: 60px;
 }
 
+.header__leftLink {
+  text-decoration: none;
+  color: black;
+}
+
 .header__right {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.header__right > p {
+.header__rightLink {
   margin: 0 10px;
+  text-decoration: none;
+  color: black;
 }
 
 .header__right > p:nth-last-child(1) {
