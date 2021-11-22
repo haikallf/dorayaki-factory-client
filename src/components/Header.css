@@ -1,0 +1,31 @@
+.header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid gray;
+  position: fixed;
+  box-shadow: 0px 0px 15px 1px gray;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95vw;
+  height: 60px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__right > p {
+  margin: 0 10px;
+}
+
+.header__right > p:nth-last-child(1) {
+  margin-right: 0;
+}
