@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { url } from "../urlconfig";
+import { url } from "../globalconfig";
 
 function Bahan() {
   const [bahan, setBahan] = useState([]);
