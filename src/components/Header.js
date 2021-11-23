@@ -13,6 +13,10 @@ function Header() {
         </div>
 
         <div className="header__right">
+          <Link to="/dorayaki" className="header__rightLink">
+            <p>Dorayaki</p>
+          </Link>
+
           <Link to="/request" className="header__rightLink">
             <p>Requests</p>
           </Link>

@@ -8,6 +8,7 @@ import Resep from "./components/Resep";
 import AddResep from "./components/AddResep";
 import AddBahan from "./components/AddBahan";
 import EditBahan from "./components/EditBahan";
+import Dorayaki from "./components/Dorayaki";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Request} />
           <Route path="/login" component={Login} />
+          <Route path="/dorayaki" component={Dorayaki} />
           <Route path="/request" component={Request} />
           <Route path="/resep" component={Resep} />
           <Route path="/addresep" component={AddResep} />
