@@ -1,0 +1,44 @@
+.addbahan {
+  height: calc(100vh - 70px);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgb(0, 162, 255); */
+}
+
+.addbahan__form {
+  height: 300px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 1px gray;
+}
+
+.addbahan__inner {
+  display: flex;
+}
+
+.addbahan__left > p {
+  margin: 20px;
+}
+
+.addbahan__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.addbahan__right > input {
+  margin: 10px;
+  padding-left: 5px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: "Poppins", sans-serif;
+}

@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Request from "./components/Request";
 import Resep from "./components/Resep";
+import AddBahan from "./components/AddBahan";
+import EditBahan from "./components/EditBahan";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/request" component={Request} />
           <Route path="/resep" component={Resep} />
           <Route path="/bahan" component={Bahan} />
+          <Route path="/editbahan/:id" component={EditBahan} />
+          <Route path="/addbahan" component={AddBahan} />
         </Switch>
       </div>
     </Router>
