@@ -31,10 +31,6 @@
   flex-direction: column;
 }
 
-.addresep__left > p {
-  /* margin: 32px 20px; */
-}
-
 .addresep__right {
   height: 100%;
   display: flex;
