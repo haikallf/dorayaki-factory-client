@@ -1,6 +1,46 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { url } from "../globalconfig";
 import "./Login.css";
 function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState([]);
+  const history = useHistory();
+
+  const [loginStatus, setLoginStatus] = useState("");
+
+  axios.defaults.withCredentials = true;
+
+  const handleLogin = () => {
+    axios
+      .post(url + "/login", {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        // if (response.data.message) {
+        //   setLoginStatus(response.data.message);
+        // } else {
+        //   setLoginStatus(response.data.result[0].username);
+        // }
+        if (response.data.message) {
+          alert(response.data.message);
+        } else {
+          history.push("/dorayaki");
+        }
+      });
+  };
+
+  useEffect(() => {
+    axios.get(url + "/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setLoginStatus(response.data.user[0].username);
+      }
+    });
+  }, []);
+
   return (
     <div className="login">
       <div className="login__container">
@@ -9,15 +49,29 @@ function Login() {
         </div>
 
         <div className="login__form">
+          <p>{loginStatus}</p>
           <div className="login__left">
             <p>Username</p>
             <p>Password</p>
           </div>
-          <form action="POST" className="login__right">
-            <input type="text" name="username" />
-            <input type="text" name="password" />
-          </form>
+          <div className="login__right">
+            <input
+              type="text"
+              name="username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              name="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
         </div>
+        <button onClick={handleLogin}>Login</button>
       </div>
     </div>
   );
