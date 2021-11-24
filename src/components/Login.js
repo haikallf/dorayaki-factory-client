@@ -25,9 +25,11 @@ function Login() {
         // } else {
         //   setLoginStatus(response.data.result[0].username);
         // }
-        if (response.data.message) {
-          alert(response.data.message);
+        console.log(response.data.token);
+        if (response.data.error) {
+          alert(response.data.error);
         } else {
+          sessionStorage.setItem("accessToken", response.data.token);
           history.push("/dorayaki");
         }
       });
@@ -49,7 +51,6 @@ function Login() {
         </div>
 
         <div className="login__form">
-          <p>{loginStatus}</p>
           <div className="login__left">
             <p>Username</p>
             <p>Password</p>
@@ -63,7 +64,7 @@ function Login() {
               }}
             />
             <input
-              type="text"
+              type="password"
               name="password"
               onChange={(e) => {
                 setPassword(e.target.value);

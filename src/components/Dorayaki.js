@@ -25,24 +25,43 @@ function Dorayaki() {
   const [namaDorayaki, setNamaDorayaki] = useState("");
   const history = useHistory();
 
-  useEffect(() => {
-    axios.get(url + "/login").then((response) => {
-      if (response.data.loggedIn == true) {
-      } else {
-        alert("Anda harus login untuk mengakses halaman ini!");
-        history.push("/login");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(url + "/login").then((response) => {
+  //     if (response.data.loggedIn == true) {
+  //     } else {
+  //       alert("Anda harus login untuk mengakses halaman ini!");
+  //       history.push("/login");
+  //     }
+  //   });
+  // }, []);
 
   useEffect(() => {
     getDorayaki();
   }, [rows]);
 
   const getDorayaki = async () => {
-    const response = await axios.get(url + "/dorayaki");
-    setRows(response.data);
+    const response = await axios.post(
+      url + "/dorayaki",
+      { withCredentials: true },
+      {
+        headers: {
+          "Authorization": sessionStorage.getItem("accessToken"),
+        },
+      }
+    );
+    if (response.data.error) {
+      console.log(response);
+      alert(response.data.error);
+      history.push("/login");
+    } else {
+      setRows(response.data);
+    }
   };
+
+  // const getDorayaki = async () => {
+  //   const response = await axios.get(url + "/dorayaki");
+  //   setRows(response.data);
+  // };
 
   const tambahDorayaki = () => {
     if (namaDorayaki == null || namaDorayaki == "") {
