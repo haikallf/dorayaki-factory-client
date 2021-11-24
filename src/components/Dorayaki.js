@@ -92,7 +92,7 @@ function Dorayaki() {
           Tambah Dorayaki
         </Button>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Subscribe</DialogTitle>
+          <DialogTitle>Tambah Dorayaki</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Masukkan nama dorayaki yang diinginkan
@@ -117,18 +117,6 @@ function Dorayaki() {
           </DialogActions>
         </Dialog>
       </div>
-
-      <Button
-        variant="contained"
-        style={{
-          backgroundColor: "rgb(0, 180, 255)",
-          marginLeft: "70px",
-          marginTop: "30px",
-        }}
-        onClick={() => history.push("/addresep")}
-      >
-        Tambah Dorayaki
-      </Button>
       <div className="dorayaki__form">
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
