@@ -22,6 +22,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 function Dorayaki() {
   const [rows, setRows] = useState([]);
+  const [namaDorayaki, setNamaDorayaki] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -31,6 +32,17 @@ function Dorayaki() {
   const getDorayaki = async () => {
     const response = await axios.get(url + "/dorayaki");
     setRows(response.data);
+  };
+
+  const tambahDorayaki = () => {
+    if (namaDorayaki == null || namaDorayaki == "") {
+      alert("Nama bahan tidak boleh kosong");
+    } else {
+      axios.post(url + "/tambahdorayaki", {
+        namaDorayaki: namaDorayaki,
+      });
+      handleClose();
+    }
   };
 
   const useStyles = makeStyles({
@@ -67,6 +79,45 @@ function Dorayaki() {
 
   return (
     <div className="dorayaki">
+      <div>
+        <Button
+          variant="contained"
+          style={{
+            backgroundColor: "rgb(0, 180, 255)",
+            marginLeft: "70px",
+            marginTop: "30px",
+          }}
+          onClick={handleClickOpen}
+        >
+          Tambah Dorayaki
+        </Button>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Subscribe</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Masukkan nama dorayaki yang diinginkan
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Nama Dorayaki"
+              type="text"
+              fullWidth
+              variant="standard"
+              value={namaDorayaki}
+              onChange={(e) => {
+                setNamaDorayaki(e.target.value);
+              }}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={tambahDorayaki}>Tambah</Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+
       <Button
         variant="contained"
         style={{
