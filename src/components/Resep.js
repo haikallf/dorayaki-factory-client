@@ -20,6 +20,16 @@ function Resep() {
   const history = useHistory();
 
   useEffect(() => {
+    axios.get(url + "/login").then((response) => {
+      if (response.data.loggedIn == true) {
+      } else {
+        alert("Anda harus login untuk mengakses halaman ini!");
+        history.push("/login");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     getResep();
   }, []);
 

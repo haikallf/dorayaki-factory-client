@@ -12,6 +12,16 @@ function EditBahan() {
   const { id } = useParams();
 
   useEffect(() => {
+    axios.get(url + "/login").then((response) => {
+      if (response.data.loggedIn == true) {
+      } else {
+        alert("Anda harus login untuk mengakses halaman ini!");
+        history.push("/login");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     getBahanById();
   }, []);
 

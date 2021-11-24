@@ -12,10 +12,22 @@ import TableRow from "@material-ui/core/TableRow";
 import TablePagination from "@material-ui/core/TablePagination";
 import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 function Request() {
   const [request, setRequest] = useState([]);
   const [rows, setRows] = useState([]);
+  const history = useHistory();
+
+  useEffect(() => {
+    axios.get(url + "/login").then((response) => {
+      if (response.data.loggedIn == true) {
+      } else {
+        alert("Anda harus login untuk mengakses halaman ini!");
+        history.push("/login");
+      }
+    });
+  }, []);
 
   const acceptRequest = (id) => {
     axios.post(url + `/request/${id}/accept`);
