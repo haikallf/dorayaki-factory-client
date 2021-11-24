@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddBahan.css";
 import axios from "axios";
 import { url } from "../globalconfig";
 import { useHistory } from "react-router";
 import { Button } from "@material-ui/core";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 function AddBahan() {
   const [namaBahan, setNamaBahan] = useState(null);
   const [stokBahan, setStokBahan] = useState(0);
   const history = useHistory();
+
+  const getNamaBahanById = async (id) => {
+    const response = await axios.get(url + `/getbahan/${id}`);
+    return response.data[0].namaBahan;
+  };
+
+  // useEffect(() => {
+  //   getBahanById(1);
+  // }, []);
 
   const tambahBahan = () => {
     if (namaBahan == null || namaBahan == "") {
