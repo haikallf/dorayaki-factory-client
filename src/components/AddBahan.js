@@ -14,6 +14,10 @@ function AddBahan() {
   const [stokBahan, setStokBahan] = useState(0);
   const history = useHistory();
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const getNamaBahanById = async (id) => {
     const response = await axios.get(url + `/getbahan/${id}`);
     return response.data[0].namaBahan;
@@ -28,7 +32,7 @@ function AddBahan() {
       alert("Nama bahan tidak boleh kosong");
     } else {
       axios.post(url + "/tambahbahan", {
-        namaBahan: namaBahan,
+        namaBahan: capitalizeFirstLetter(namaBahan),
         stokBahan: stokBahan,
       });
       history.goBack();
