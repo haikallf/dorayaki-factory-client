@@ -41,7 +41,15 @@ function Request() {
   };
 
   const acceptRequest = (id) => {
-    axios.post(url + `/request/${id}/accept`);
+    const response = axios.post(url + `/acceptrequest`, {
+      idRequest: id,
+    });
+    console.log(response);
+    if (response.message) {
+      alert("Penerimaan request gagal!");
+    } else {
+      axios.post(url + `/request/${id}/accept`);
+    }
     return;
   };
 

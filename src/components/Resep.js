@@ -46,7 +46,7 @@ function Resep() {
 
   const getResep = async () => {
     const response = await axios.get(url + "/resep");
-    console.log(response.data);
+    console.log(response);
     setRows(response.data);
   };
 
