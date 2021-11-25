@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { url } from "../globalconfig";
 import "./Login.css";
 function Login() {
@@ -25,9 +25,9 @@ function Login() {
         // } else {
         //   setLoginStatus(response.data.result[0].username);
         // }
-        console.log(response.data.token);
-        if (response.data.error) {
-          alert(response.data.error);
+        console.log(response);
+        if (response.data.message) {
+          alert(response.data.message);
         } else {
           sessionStorage.setItem("accessToken", response.data.token);
           history.push("/dorayaki");
@@ -73,6 +73,9 @@ function Login() {
           </div>
         </div>
         <button onClick={handleLogin}>Login</button>
+        <p>
+          Atau registrasi <Link to="/register">di sini</Link>{" "}
+        </p>
       </div>
     </div>
   );

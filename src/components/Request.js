@@ -88,7 +88,6 @@ function Request() {
             <TableRow>
               <TableCell align="center">ID Request</TableCell>
               <TableCell align="center">ID Item</TableCell>
-              <TableCell align="center">IP Address</TableCell>
               <TableCell align="center">Username</TableCell>
               <TableCell align="center">Quantity</TableCell>
               <TableCell align="center">Waktu Request</TableCell>
@@ -103,7 +102,6 @@ function Request() {
                 <TableRow key={row.name}>
                   <TableCell align="center">{row.idRequest}</TableCell>
                   <TableCell align="center">{row.idItem}</TableCell>
-                  <TableCell align="center">{row.ip}</TableCell>
                   <TableCell align="center">{row.username}</TableCell>
                   <TableCell align="center">{row.quantity}</TableCell>
                   <TableCell align="center">{row.timestamp}</TableCell>
