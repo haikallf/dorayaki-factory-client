@@ -1,8 +1,15 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 function Header() {
+  const history = useHistory();
+  const handleLogOut = () => {
+    sessionStorage.clear();
+    history.push("/login");
+  };
   return (
     <div className="header">
       <div className="header__container">
@@ -28,6 +35,19 @@ function Header() {
           <Link to="/bahan" className="header__rightLink">
             <p>Bahan</p>
           </Link>
+          <Button
+            variant="outlined"
+            style={{
+              borderColor: "rgb(172, 4, 4)",
+              color: "rgb(172, 4, 4)",
+              marginLeft: "10px",
+              height: "25px",
+              fontSize: "12px",
+            }}
+            onClick={handleLogOut}
+          >
+            Log Out
+          </Button>
         </div>
       </div>
     </div>
