@@ -36,32 +36,19 @@ function Dorayaki() {
   // }, []);
 
   useEffect(() => {
-    authTest();
-  }, []);
-
-  const authTest = async () => {
-    const response = await axios.post(
-      url + "/authtest",
-      { withCredentials: true },
-      {
-        headers: {
-          Authorization: sessionStorage.getItem("accessToken"),
-        },
-      }
-    );
-    if (response.data.error) {
-      console.log(response);
-      alert("Anda harus login untuk melihat halaman ini!");
-      history.push("/login");
-    }
-  };
-
-  useEffect(() => {
     getDorayaki();
   }, [rows]);
 
   const getDorayaki = async () => {
-    const response = await axios.get(url + "/dorayaki");
+    const response = await axios.post(
+      url + "/dorayaki",
+      { withCredentials: true },
+      {
+        headers: {
+          "Authorization": sessionStorage.getItem("accessToken"),
+        },
+      }
+    );
     if (response.data.error) {
       console.log(response);
       alert(response.data.error);

@@ -20,14 +20,25 @@ function Resep() {
   const history = useHistory();
 
   useEffect(() => {
-    axios.get(url + "/login").then((response) => {
-      if (response.data.loggedIn == true) {
-      } else {
-        alert("Anda harus login untuk mengakses halaman ini!");
-        history.push("/login");
+    authTest();
+  }, [rows]);
+
+  const authTest = async () => {
+    const response = await axios.post(
+      url + "/authtest",
+      { withCredentials: true },
+      {
+        headers: {
+          Authorization: sessionStorage.getItem("accessToken"),
+        },
       }
-    });
-  }, []);
+    );
+    if (response.data.error) {
+      console.log(response);
+      alert("Anda harus login untuk melihat halaman ini!");
+      history.push("/login");
+    }
+  };
 
   useEffect(() => {
     getResep();
