@@ -6,21 +6,21 @@ Aplikasi Doradora factory merupakan aplikasi jual beli pusat dorayaki yang menye
 ## screenshot
 1. login
 ![login](./SS/login.jpg)
-1. register
+2. register
 ![regist](./SS/register.jpg)
-1. dorayaki page
+3. dorayaki page
 ![dora](./SS/Dorayakipage.jpg)
-1. tambah dorayaki
-![tambah](./SS/tambahdora.jpg)
-1. request dorayaki
+4. tambah dorayaki
+![tambah](./SS/TambahDora.jpg)
+5. request dorayaki
 ![req](./SS/reqdora.jpg)
-1. edit bahan
+6. bahan
 ![edit](./SS/editbahan.jpg)
-1. tambah bahan
+7. tambah bahan
 ![tambah](./SS/tambahbahan.jpg)
-1. resep
+8. resep
 ![bahan](./SS/bahan.jpg)
-1. tambah resep
+9. tambah resep
 ![tam](./SS/tambahresep.jpg)
 
 ## Pembagian tugas
